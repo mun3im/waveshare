@@ -35,7 +35,7 @@ range exactly.
 
 WiFi and NTP complete *before* the LCD and LVGL are initialized, to avoid a cache race
 between the RGB panel's bounce-buffer ISR and `WiFi.begin()`. See
-`../DEVICE_DATASHEET.md` §12.
+"The WiFi + RGB LCD cache race" in `../DEVICE_DATASHEET.md`.
 
 ## Building
 

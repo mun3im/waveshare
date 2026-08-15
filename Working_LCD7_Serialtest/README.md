@@ -21,7 +21,8 @@ The `Hello World!` output has some history. This board arrived with an `app0` im
 did nothing but `Serial.begin(115200)` and print `Hello World!` in a loop — no LCD, no
 touch, no expander. It was almost certainly a minimal QC-test image from a previous owner
 or reseller, not Waveshare's actual LVGL demo, which is why restoring the "factory"
-firmware still left the display dark. See `../DEVICE_DATASHEET.md` §11.
+firmware still left the display dark. See the "Factory image" note in
+`../DEVICE_DATASHEET.md`.
 
 ## Building
 

@@ -3,7 +3,7 @@
  *
  * Full-screen clock, digital <-> analog toggled by tapping anywhere on screen.
  * (Prayer-times mode was split out into the separate `PrayerTimes` sketch, a
- * fork of this one from 2026-08-07 -- see DEVICE_DATASHEET.md #15/#16. This
+ * fork of this one from 2026-08-07. This
  * sketch stays a clean, minimal clock-only build.)
  *
  * Built on top of the ESP32_Display_Panel "simple_port" example, which handles
@@ -13,7 +13,7 @@
  *
  * On boot: connects to WiFi and syncs time via NTP (local time = GMT+8, no DST)
  * *before* touching the LCD/LVGL -- see the comment in setup() for why (a known
- * ESP32-S3 RGB-LCD + WiFi cache-race crash, see DEVICE_DATASHEET.md #12).
+ * ESP32-S3 RGB-LCD + WiFi cache-race crash, see DEVICE_DATASHEET.md).
  */
 
 #include <Arduino.h>
@@ -277,7 +277,7 @@ void setup()
 
     // WiFi/NTP first, LCD/LVGL after -- avoids a known ESP32-S3 RGB-LCD-bounce-buffer
     // + WiFi flash-cache race (esp-arduino-libs/ESP32_Display_Panel#198). See
-    // DEVICE_DATASHEET.md section 12 for the full writeup.
+    // DEVICE_DATASHEET.md ("The WiFi + RGB LCD cache race") for the full writeup.
     Serial.println("Connecting to WiFi (before LCD init, to avoid RGB+WiFi cache race)...");
     connect_wifi_and_sync_time_headless();
 

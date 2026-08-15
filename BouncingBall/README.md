@@ -27,8 +27,8 @@ cached memory region accessed."* Doing the network step first — before any LCD
 exist — sidesteps the race entirely.
 
 This is a workaround, not a fix. If you extend this sketch to touch WiFi, NVS, or OTA
-*after* the display is running, the crash risk returns. See `../DEVICE_DATASHEET.md` §12
-for the full writeup and upstream issue.
+*after* the display is running, the crash risk returns. See "The WiFi + RGB LCD cache
+race" in `../DEVICE_DATASHEET.md` for the full writeup and upstream issue.
 
 ## Building
 

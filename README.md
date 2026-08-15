@@ -20,8 +20,8 @@ problem hit during bring-up. Read it before starting anything new here.
 echo at 115200 baud, no libraries, no display code
 ([README](Working_LCD7_Serialtest/README.md)). Use it to confirm a board is alive and the
 USB serial path works before debugging anything more complicated. It also has some
-history — datasheet §11 identifies its `Hello World!` output as what this board's
-"factory" image was actually printing.
+history — the datasheet's "Factory image" note identifies its `Hello World!` output as
+what this board's "factory" image was actually printing.
 
 `wiki.pdf` is Waveshare's vendor documentation for the board.
 
@@ -42,9 +42,9 @@ FlashSize=16M,PartitionScheme=app3M_fat9M_16MB,PSRAM=enabled
 
 - **`PSRAM=enabled`** — the RGB panel needs a ~2.3 MB frame buffer that can only come
   from PSRAM. The Arduino board definition defaults it to *disabled*, which yields a
-  dark screen and a boot crash (datasheet §9).
+  dark screen and a boot crash (see the datasheet's "Build settings").
 - **16 MB partition scheme** — the default 1.25 MB app slot overflows once WiFi and LVGL
-  are both linked in (datasheet §14).
+  are both linked in (same section).
 
 Full example:
 
