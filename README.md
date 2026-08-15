@@ -13,13 +13,14 @@ problem hit during bring-up. Read it before starting anything new here.
 | Sketch | What it does |
 |---|---|
 | [`PrayerTimes/`](PrayerTimes/) | Waktu solat display for JAKIM zone JHR02 (Johor Bahru), with a full year of prayer times compiled in. Tap cycles prayer / analog / digital screens. Has its own [README](PrayerTimes/README.md). |
-| [`ClockDisplay/`](ClockDisplay/) | Full-screen clock; tap toggles between a large digital readout and an analog face. `PrayerTimes` was forked from this. |
-| [`BouncingBall/`](BouncingBall/) | The LVGL demo that first proved the panel working, later extended with WiFi + NTP. The known-good baseline for this board. |
+| [`ClockDisplay/`](ClockDisplay/) | Full-screen clock; tap toggles between a large digital readout and an analog face. `PrayerTimes` was forked from this. [README](ClockDisplay/README.md) |
+| [`BouncingBall/`](BouncingBall/) | The LVGL demo that first proved the panel working, later extended with WiFi + NTP. The known-good baseline for this board. [README](BouncingBall/README.md) |
 
 [`Working_LCD7_Serialtest/`](Working_LCD7_Serialtest/) is a minimal smoke test: serial
-echo at 115200 baud, no libraries, no display code. Use it to confirm a board is alive
-and the USB serial path works before debugging anything more complicated. It also has
-some history — datasheet §11 identifies its `Hello World!` output as what this board's
+echo at 115200 baud, no libraries, no display code
+([README](Working_LCD7_Serialtest/README.md)). Use it to confirm a board is alive and the
+USB serial path works before debugging anything more complicated. It also has some
+history — datasheet §11 identifies its `Hello World!` output as what this board's
 "factory" image was actually printing.
 
 `wiki.pdf` is Waveshare's vendor documentation for the board.
