@@ -16,10 +16,19 @@ problem hit during bring-up. Read it before starting anything new here.
 | [`ClockDisplay/`](ClockDisplay/) | Full-screen clock; tap toggles between a large digital readout and an analog face. `PrayerTimes` was forked from this. |
 | [`BouncingBall/`](BouncingBall/) | The LVGL demo that first proved the panel working, later extended with WiFi + NTP. The known-good baseline for this board. |
 
-The remaining top-level folders (`minimal_lcd/`, `query_lcd/`, `test_for_spi/`,
-`this_works/`, `to_see_if_anything_works/`, and similar) are early bring-up probes from
-the dark-screen investigation described in the datasheet. Kept as a record; most are
-dead ends. `wiki.pdf` is Waveshare's vendor documentation for the board.
+[`Working_LCD7_Serialtest/`](Working_LCD7_Serialtest/) is a minimal smoke test: serial
+echo at 115200 baud, no libraries, no display code. Use it to confirm a board is alive
+and the USB serial path works before debugging anything more complicated. It also has
+some history — datasheet §11 identifies its `Hello World!` output as what this board's
+"factory" image was actually printing.
+
+`wiki.pdf` is Waveshare's vendor documentation for the board.
+
+The other bring-up probes from the dark-screen investigation were removed: they were
+written against `TFT_eSPI` before the panel was identified, and this board has an **RGB
+parallel** panel (ST7262 behind a CH422G IO expander), not an SPI one. They could never
+have worked here, and kept suggesting wrong controllers (ILI9488, ILI9806E). The
+investigation itself is written up in the datasheet, which is the part worth keeping.
 
 ## Build settings
 
