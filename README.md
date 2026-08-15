@@ -31,6 +31,35 @@ parallel** panel (ST7262 behind a CH422G IO expander), not an SPI one. They coul
 have worked here, and kept suggesting wrong controllers (ILI9488, ILI9806E). The
 investigation itself is written up in the datasheet, which is the part worth keeping.
 
+## Official documentation
+
+Waveshare's own resources for this board:
+
+- **[Wiki page](https://www.waveshare.com/wiki/ESP32-S3-Touch-LCD-7)** — pinouts, onboard
+  resource list, demo code, and links to every component datasheet below. Start here.
+- **[Product page](https://www.waveshare.com/esp32-s3-touch-lcd-7.htm)** — specs and
+  what's in the box.
+- **[Schematic (PDF)](https://files.waveshare.com/wiki/ESP32-S3-Touch-LCD-7/ESP32-S3-Touch-LCD-7-Sch.pdf)**
+  — the authority on what is actually wired where, including which lines run through the
+  IO expander rather than straight to a GPIO.
+
+Component datasheets, all mirrored by Waveshare:
+
+| Part | Role on this board |
+|---|---|
+| [ST7262](https://files.waveshare.com/wiki/common/ST7262.pdf) | The RGB parallel LCD controller. Not SPI — this is why `TFT_eSPI`-style sketches cannot drive this panel. |
+| [CH422G](https://files.waveshare.com/wiki/common/CH422DS1_EN.pdf) | I2C IO expander at `0x20` holding the backlight, LCD reset, touch reset, SD CS, and USB select lines. |
+| [GT911](https://files.waveshare.com/wiki/common/GT911_EN_Datasheet.pdf) | Capacitive touch controller, on the same I2C bus as the expander. |
+| [ESP32-S3-WROOM-1](https://files.waveshare.com/wiki/common/Esp32-s3-wroom-1_wroom-1u_datasheet_en.pdf) | The module itself. See also the [ESP32-S3 datasheet](https://files.waveshare.com/wiki/common/Esp32-s3_datasheet_en.pdf) and [technical reference manual](https://files.waveshare.com/wiki/common/Esp32-s3_technical_reference_manual_en.pdf). |
+
+A local copy of the vendor documentation is also checked in as `wiki.pdf`.
+
+Note that Waveshare publishes **no GitHub repository** for the plain (non-B/C)
+ESP32-S3-Touch-LCD-7 — [`waveshareteam`](https://github.com/waveshareteam) has repos for
+other boards, but not this one. The working driver stack for it is Espressif's
+[`ESP32_Display_Panel`](https://github.com/esp-arduino-libs/ESP32_Display_Panel), which
+all the LVGL sketches here build on.
+
 ## Build settings
 
 Every sketch that drives the LCD needs these three options — the defaults fail in ways

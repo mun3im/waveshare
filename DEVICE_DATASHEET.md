@@ -3,7 +3,12 @@
 Compiled from live USB/serial/flash diagnostics on 2026-08-07.
 Board model: **ESP32-S3 7" Touch Display, 800×480, Xtensa LX7 dual-core, 8MB Flash (nominal), WiFi + BT5, GUI/LVGL/HMI**.
 
-Status as of last check: **display is dark** (factory firmware present but not producing visible output).
+Status: **working**. The dark display on arrival was a `PSRAM=disabled` build-config
+issue, not a hardware fault — see §9.
+
+These are measured values from this specific board. For the manufacturer's own
+documentation — wiki, schematic, and the ST7262 / CH422G / GT911 datasheets — see
+[README.md](README.md#official-documentation).
 
 ---
 
