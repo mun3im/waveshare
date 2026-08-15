@@ -1,0 +1,16 @@
+# Real WiFi credentials -- never commit. Each sketch that needs WiFi keeps a
+# local wifi_credentials.h copied from wifi_credentials.h.example and filled in;
+# only the .example templates are tracked. These patterns are unanchored so they
+# apply in every sketch folder, not just the repo root.
+wifi_credentials.h
+*credentials.h
+!*credentials.h.example
+
+# macOS
+.DS_Store
+
+# Arduino build output
+build/
+*.bin
+*.elf
+*.hex
